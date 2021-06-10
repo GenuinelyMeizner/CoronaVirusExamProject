@@ -8,12 +8,12 @@ async function updateParishList() {
     const tableBody = document.getElementById("table-body");
 
     data.forEach(parish => {
+
         const tableRow = document.createElement("tr");
         tableBody.appendChild(tableRow);
 
         const parishName = document.createElement("td");
         parishName.textContent = parish.parishName;
-        parishName.contentEditable = true;
         tableRow.appendChild(parishName);
 
         const parishCode = document.createElement("td");

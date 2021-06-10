@@ -30,5 +30,13 @@ public class InitializedData {
         Municipality municipality4 = new Municipality("Aalborg", 851);
         Parish parish4 = new Parish("Vor Frue", 8368, 7180, 459.61, 33, 2.34, true, LocalDate.parse("2021-06-04"), municipality4);
         parishRepository.save(parish4);
+
+        Municipality municipality5 = new Municipality("Vesthimmerlands", 820);
+        Parish parish5 = new Parish("Fovlum", 8284, 392, 1530.61, 6, 12.24, false, null, municipality5);
+        parishRepository.save(parish5);
+
+        Municipality municipality6 = new Municipality("Ringkøbing-Skjern", 760);
+        Parish parish6 = new Parish("Faster", 8778, 887, 1465.61, 13, 6.16, false, null, municipality6);
+        parishRepository.save(parish6);
     }
 }
