@@ -12,7 +12,9 @@ import java.time.LocalDate;
 @Component
 @AllArgsConstructor
 public class InitializedData {
+
     private final ParishRepository parishRepository;
+
     @Bean
     public void insertDefaultData() {
         Municipality municipality1 = new Municipality("Vejle", 630);

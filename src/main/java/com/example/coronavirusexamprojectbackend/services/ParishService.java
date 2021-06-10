@@ -1,14 +1,11 @@
 package com.example.coronavirusexamprojectbackend.services;
 
-import com.example.coronavirusexamprojectbackend.models.Municipality;
 import com.example.coronavirusexamprojectbackend.models.Parish;
-import com.example.coronavirusexamprojectbackend.repositories.MunicipalityRepository;
 import com.example.coronavirusexamprojectbackend.repositories.ParishRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
