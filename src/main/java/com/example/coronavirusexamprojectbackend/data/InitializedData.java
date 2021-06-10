@@ -14,8 +14,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class InitializedData {
     private final ParishRepository parishRepository;
-    private final MunicipalityRepository municipalityRepository;
-
     @Bean
     public void insertDefaultData() {
         Municipality municipality1 = new Municipality("Vejle", 630);
