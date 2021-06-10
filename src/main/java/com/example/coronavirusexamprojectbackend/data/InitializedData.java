@@ -15,6 +15,14 @@ public class InitializedData {
 
     private final ParishRepository parishRepository;
 
+    /**
+     * Initializes default data for the application, for simple testing purpose. Once the program is launched, the following
+     * data is automatically stored on the Database.
+     *
+     * To view initialized data and the data you create through Postman, please access the H2 Database by entering the following url in your browser and press on the connect button:
+     * localhost:1000/h2-console
+     */
+
     @Bean
     public void insertDefaultData() {
         Municipality municipality1 = new Municipality("Vejle", 630);
