@@ -49,7 +49,6 @@ async function updateParishList() {
         lockdownCheckBox.disabled = true;
         parishUnderAutomaticLockdown.appendChild(lockdownCheckBox);
 
-
         const parishDateOfAutomaticLockdown = document.createElement("td");
         parishDateOfAutomaticLockdown.textContent = parish.parishDateOfAutomaticLockdown;
         tableRow.appendChild(parishDateOfAutomaticLockdown);
