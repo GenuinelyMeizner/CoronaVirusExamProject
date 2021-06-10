@@ -1,8 +1,5 @@
 package com.example.coronavirusexamprojectbackend.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,20 +16,28 @@ public class Parish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long parishId;
-    private int parishCode;
     private String parishName;
-    private double infectionPercentage;
-    private LocalDate quarantineDate;
+    private int parishCode;
+    private int parishInhabitants;
+    private double parishNumberOfIncidents;
+    private int parishNumberOfNewInfected;
+    private double parishPercentageOfInfected;
+    private boolean parishUnderAutomaticLockdown;
+    private LocalDate parishDateOfAutomaticLockdown;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "municipalityId")
     private Municipality municipality;
 
-    public Parish(int parishCode, String parishName, double infectionPercentage, LocalDate quarantineDate, Municipality municipality) {
-        this.parishCode = parishCode;
+    public Parish(String parishName, int parishCode, int parishInhabitants, double parishNumberOfIncidents, int parishNumberOfNewInfected, double parishPercentageOfInfected, boolean parishUnderAutomaticLockdown, LocalDate parishDateOfAutomaticLockdown, Municipality municipality) {
         this.parishName = parishName;
-        this.infectionPercentage = infectionPercentage;
-        this.quarantineDate = quarantineDate;
+        this.parishCode = parishCode;
+        this.parishInhabitants = parishInhabitants;
+        this.parishNumberOfIncidents = parishNumberOfIncidents;
+        this.parishNumberOfNewInfected = parishNumberOfNewInfected;
+        this.parishPercentageOfInfected = parishPercentageOfInfected;
+        this.parishUnderAutomaticLockdown = parishUnderAutomaticLockdown;
+        this.parishDateOfAutomaticLockdown = parishDateOfAutomaticLockdown;
         this.municipality = municipality;
     }
 }
