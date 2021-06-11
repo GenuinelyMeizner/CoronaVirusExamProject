@@ -1,5 +1,9 @@
 updateParishList()
 
+/**
+ * Fetches a list of all parishes and displays them dynamically on index.html
+ */
+
 async function updateParishList() {
     const url = "/api/get-all-parishes";
     const response = await fetch(url);
@@ -75,4 +79,96 @@ async function updateParishList() {
         deleteButton.textContent = "Delete";
         deleteParishContainer.appendChild(deleteButton);
     });
+}
+
+/**
+ * This method has no HTML/CSS supporting it and is therefore just a showcase of my CRUD Create ability
+ * Feel free to try the method out by calling it at the top of this file
+ * Creates a Parish and Municipality object and inserts them into the database
+ */
+
+function createParish() {
+
+    const parishObject = {
+        "parishName": "Rud",
+        "parishCode": 8144,
+        "parishInhabitants": 314,
+        "parishNumberOfIncidents": 955.41,
+        "parishNumberOfNewInfected": 3,
+        "parishPercentageOfInfected": 7.69,
+        "parishUnderAutomaticLockdown": false,
+        "parishDateOfAutomaticLockdown": null,
+        "municipality": {
+            "municipalityName": "Favrskov",
+            "municipalityCode": 710
+        }
+    }
+    const parishBody = JSON.stringify(parishObject);
+
+    const insertParishUrl = "/api/create-parish";
+
+    const requestObject = {
+        headers:{
+            'Content-Type':'application/json',
+        },
+        method:'POST',
+        body: parishBody
+    };
+
+    fetch(insertParishUrl, requestObject)
+        .then(response => response.json());
+}
+
+/**
+ * This method has no HTML/CSS supporting it and is therefore just a showcase of my CRUD Update ability
+ * Feel free to try the method out by calling it at the top of this file
+ * Updates the entry in the database based on a @PathVariable
+ */
+
+function updateParish() {
+    const parishObject = {
+        "parishId": 2,
+        "parishName": "Budfolfi - This has just been updated",
+        "parishCode": 8364,
+        "parishInhabitants": 7216,
+        "parishNumberOfIncidents": 706.76,
+        "parishNumberOfNewInfected": 51,
+        "parishPercentageOfInfected": 3.11,
+        "parishUnderAutomaticLockdown": true,
+        "parishDateOfAutomaticLockdown": "2021-05-30",
+        "municipality": {
+            "municipalityId": 2,
+            "municipalityName": "Aalborg",
+            "municipalityCode": 851
+        }
+    }
+    const parishBody = JSON.stringify(parishObject);
+
+    const putParishUrl = "/api/update-parish/2";
+
+    const requestObject = {
+        headers:{
+            'Content-Type':'application/json',
+        },
+        method:'PUT',
+        body: parishBody
+    };
+
+    fetch(putParishUrl, requestObject)
+        .then(response => response.json());
+}
+
+/**
+ * This method has no HTML/CSS supporting it and is therefore just a showcase of my CRUD Delete ability
+ * Feel free to try the method out by calling it at the top of this file
+ * Deletes an entry from the database based on a @PathVariable
+ */
+
+function deleteParish() {
+    const deleteParishUrl = "/api/delete-parish/3";
+
+    const deleteObject = {
+        method:'DELETE'
+    }
+    fetch(deleteParishUrl, deleteObject)
 }
